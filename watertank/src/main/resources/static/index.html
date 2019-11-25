@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>MyCheck App</title>
+
+<!-- Bootstrap Core CSS -->
+<script src="resources/js/angular.min.js"></script>    
+<script src="resources/js/jquery.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/ui-bootstrap-1.1.0.min.js"></script>
+
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/blog-home.css" rel="stylesheet">
+<link href="resources/css/form.css" rel="stylesheet">
+</head>
+
+<body>
+	<!--angularJS definition  -->
+	<div ng-app="loginApp" ng-controller="loginAppController"> 
+	
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<form id="logoutForm" method="POST" action="${contextPath}/secured/logout">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form>
+
+				<h2>Welcome, {{username}}</h2>
+				<a ng-click="logout()" id="logout_btn" class="btn btn-primary" href="">Logout</a>
+
+	
+			<img src="resources/img/codeValue.png" alt="Code Value" id="logo_nav" title="openlegacy" width="440" caption="false" data-constrained="true" style="width: 440px;" srcset="" />
+		</nav>
+
+
+		<!-- Page Content -->
+		<div class="container">
+		<br>
+			<div class="row">
+
+				<div id="getAllusers" class="col-md-8" ng-app="loginApp" ng-controller="loginAppController">
+					<h1 class="page-header">Welcome to the Code value Watertanks Crm</h1>
+						<a class="btn btn-primary" href="#" ng-click="getAllWatertanks()">Display Watertanks<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<br>
+						<br>
+						<br>
+						
+						<table>
+							<thead>
+								<tr>
+									<th >ID</th>
+									<th >Max Capacity</th>
+									<th >Current Capacity</th>
+									<th >Water Leak Rate</th>
+									<th >liter Of Leak</th>
+								</tr>
+							</thead>
+							<tbody data-ng-repeat="water in printAllWatertanks">
+								<tr>
+									<td >{{water.id}}</td>
+									<td >{{water.maxCapacity}}</td>
+									<td ><strong style="color:red">{{water.currentCapacity}}</strong></td>
+									<td >{{water.waterLeakRate}}</td>
+									<td >{{water.literOfLeak}}</td>
+								</tr>
+							</tbody>
+						</table>
+
+
+				</div>
+
+				<!-- Sidebar Widgets Column -->
+				<div class="col-md-4">
+					<div class="well">
+						<h4>Code Value Spring Boot Test App </h4>
+						<p>This App is not a template and was written entirely as a test for Code Value company by Oren Hoffman
+							<br>
+							<br>
+							Architectural info:
+							<br>
+							<br>
+							Java Module: Spring Boot 1.5
+							<br>
+							DataSource : In Memory
+							<br>
+							Font end: AngularJs</p>
+					</div>
+				</div>
+			</div>
+
+			<footer>
+				<div class="row">
+					<div class="col-lg-12">
+						<p>Copyright &copy; Oren Hoffman 2019</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+</body>
+</html>
