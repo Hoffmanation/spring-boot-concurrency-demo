@@ -30,7 +30,6 @@ import com.watertank.test.rest.LoginRestResource;
 @Component
 public class AppFilter implements Filter {
 
-	
 	private static final Logger log = LoggerFactory.getLogger(AppFilter.class);
 
 	@Override
