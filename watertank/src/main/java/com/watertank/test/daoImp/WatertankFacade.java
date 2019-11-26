@@ -43,7 +43,19 @@ public class WatertankFacade {
 		return QueryMaxCapacity(watertankId) >= (QueryCurrentCapacity(watertankId) + liter);
 	}
 	
-	public void createALeak(double literOfLeak, long everyMin ,Integer watertankId) {
+	
+
+	public boolean AddWater(double liter, Integer watertankId) {
+		if (canAddVolumeToWatertank(liter, watertankId)) {
+			Watertank currentWatertank = watertankServiceStub.getAllWatertankById(watertankId);
+			currentWatertank.setCurrentCapacity(currentWatertank.getCurrentCapacity() + liter);
+			return true ;
+		}
+		return false;
+
+	}
+	
+	public void createALeak(double literOfLeak, long everySec ,Integer watertankId) {
 		ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
 		exec.scheduleAtFixedRate(new Runnable() {
 		  @Override
@@ -57,21 +69,8 @@ public class WatertankFacade {
 			  }
 			  
 		  }
-		}, everyMin, everyMin, TimeUnit.SECONDS);
+		}, everySec, everySec, TimeUnit.SECONDS);
 		
-	}
-	
-	
-
-	public boolean AddWater(double liter, Integer watertankId) {
-		if (canAddVolumeToWatertank(liter, watertankId)) {
-			Watertank currentWatertank = watertankServiceStub.getAllWatertankById(watertankId);
-			currentWatertank.setCurrentCapacity(currentWatertank.getCurrentCapacity() + liter);
-			watertankServiceStub.updateWatertankById(currentWatertank);
-			return true ;
-		}
-		return false;
-
 	}
 	
 	

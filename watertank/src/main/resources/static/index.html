@@ -70,7 +70,7 @@
 								<tr>
 									<td >{{water.id}}</td>
 									<td >{{water.maxCapacity}}</td>
-									<td ><strong style="color:red">{{water.currentCapacity}}</strong></td>
+									<td ><strong ng-style=" water.maxCapacity -water.currentCapacity < 3 && {'color':'red'} || {'color': 'blue'}"  >{{water.currentCapacity}}</strong></td>
 									<td >{{water.waterLeakRate}}</td>
 									<td >{{water.literOfLeak}}</td>
 								</tr>

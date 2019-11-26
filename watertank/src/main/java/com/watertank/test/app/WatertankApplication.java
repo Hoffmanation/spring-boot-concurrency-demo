@@ -43,27 +43,26 @@ public class WatertankApplication implements CommandLineRunner {
 
 		//Please uncomment the blow when running as a spring boot web app (java -jar)
 		
-		/*
-		while (true) {
-			for (String watertankId : initWatertanksContainers.split(",")) {
-
-				Random r = new Random();
-				long randomeLiter = r.nextInt((10 - 2) + 1) + 2;
-				System.out.println("New test for : " + watertankId);
-				System.out.println(watertankFacade.getQueryMaxCapacity(watertankId,port));
-				System.out.println(watertankFacade.getQueryCurrentCapacity(watertankId,port));
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				System.out.println(watertankFacade.addWater(watertankId, randomeLiter,port));
-				System.out.println(watertankFacade.getQueryCurrentCapacity(watertankId,port));
-				System.out.println("Finished\n");
-			}
-
-		}*/
+		
+//		while (true) {
+//			for (String watertankId : initWatertanksContainers.split(",")) {
+//
+//				Random r = new Random();
+//				long randomeLiter = r.nextInt((10 - 2) + 1) + 2;
+//				watertankFacade.getQueryMaxCapacity(watertankId,port);
+//				watertankFacade.getQueryCurrentCapacity(watertankId,port);
+//				try {
+//					Thread.sleep(3000);
+//				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				watertankFacade.addWater(watertankId, randomeLiter,port);
+//				watertankFacade.getQueryCurrentCapacity(watertankId,port);
+//
+//			}
+//
+//		}
 
 	}
 
