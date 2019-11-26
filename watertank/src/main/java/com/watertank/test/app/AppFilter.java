@@ -46,6 +46,7 @@ public class AppFilter implements Filter {
 			res.sendRedirect(req.getContextPath() + "/registration.html");
 		}
 		
+		
 		else {
 			chain.doFilter(req, res);
 		}
