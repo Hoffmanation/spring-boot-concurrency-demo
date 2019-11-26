@@ -3,8 +3,7 @@ Hi All
 I finished the test. 
 
 A link to the source Code via Git Repository can be found here : https://github.com/Hoffmanation/CodeValueTest.git
-A link to the source Code as a zip file via my own personal server can be found here :   http://oren-hoffman.com/codeValue/codeValue.zip  
-A direct link to the Executable Jar file can be found here : http://oren-hoffman.com/codeValue/codeValue.jar
+A direct link to the Executable Jar file can be found here : http://oren-hoffman.com/codeValue/CodeValue.jar
 
 Please bare in mind that this downloads can take a few minutes ...
 
