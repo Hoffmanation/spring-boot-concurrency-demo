@@ -19,7 +19,7 @@ import com.watertank.test.daoImp.WatertankFacade;
 import com.watertank.test.entity.WatertankWrapper.Watertank;
 
 /**
- * A Controller class for all App RestFull API calls
+ * A Controller class for App Watertank Bean CRUD  -  RestFull API calls
  * 
  * @author The Hoff
  *

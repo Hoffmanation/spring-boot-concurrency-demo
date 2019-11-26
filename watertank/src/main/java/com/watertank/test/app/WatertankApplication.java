@@ -16,11 +16,16 @@ import org.springframework.context.annotation.PropertySource;
 import com.watertank.test.daoImp.WatertankFacade;
 import com.watertank.test.entity.WatertankWrapper;
 
+
+/**
+ * This is the main class witch will initialize the WatertankApplication
+ * @author The Hoff
+ *
+ */
 @ServletComponentScan
 @EnableAutoConfiguration
 @ComponentScan({ "com.watertank.test.entity", "com.watertank.test.rest", "com.watertank.test.daoImp",
 		"com.watertank.test.app" })
-@EnableConfigurationProperties(WatertankWrapper.class)
 @SpringBootApplication
 @PropertySource("classpath:application.properties")
 

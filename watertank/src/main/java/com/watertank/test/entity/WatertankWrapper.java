@@ -15,6 +15,11 @@ import org.springframework.stereotype.Component;
 
 import com.watertank.test.daoImp.WatertankFacade;
 
+/**
+ * A Wrapper class that will hold the Watertank entity and will initialize the create-a-Leak thread for every watertank container.
+ * @author The Hoff
+ *
+ */
 @Component
 @ConfigurationProperties(prefix = "app")
 public class WatertankWrapper {

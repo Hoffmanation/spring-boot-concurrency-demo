@@ -16,7 +16,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.watertank.test.dao.WatertankService;
 import com.watertank.test.entity.WatertankWrapper.Watertank;
-
+/**
+ * A Facade-Busibess Logic layer class for  the Watertank App
+ * @author The Hoff
+ *
+ */
 @Service
 public class WatertankFacade {
 	
@@ -32,11 +36,11 @@ public class WatertankFacade {
 	};
 
 	public double QueryMaxCapacity(Integer watertankId) {
-		return watertankServiceStub.getAllWatertankById(watertankId).getMaxCapacity();
+		return watertankServiceStub.getWatertankById(watertankId).getMaxCapacity();
 	}
 
 	public double QueryCurrentCapacity(Integer watertankId) {
-		return watertankServiceStub.getAllWatertankById(watertankId).getCurrentCapacity();
+		return watertankServiceStub.getWatertankById(watertankId).getCurrentCapacity();
 	}
 
 	public boolean canAddVolumeToWatertank(double liter, Integer watertankId) {
@@ -47,8 +51,9 @@ public class WatertankFacade {
 
 	public boolean AddWater(double liter, Integer watertankId) {
 		if (canAddVolumeToWatertank(liter, watertankId)) {
-			Watertank currentWatertank = watertankServiceStub.getAllWatertankById(watertankId);
-			currentWatertank.setCurrentCapacity(currentWatertank.getCurrentCapacity() + liter);
+			Watertank currentWatertank = watertankServiceStub.getWatertankById(watertankId);
+			double originalCapacity = currentWatertank.getCurrentCapacity() ;
+			currentWatertank.setCurrentCapacity(originalCapacity + liter);
 			return true ;
 		}
 		return false;
@@ -60,7 +65,7 @@ public class WatertankFacade {
 		exec.scheduleAtFixedRate(new Runnable() {
 		  @Override
 		  public void run() {
-			  Watertank watertank =watertankServiceStub.getAllWatertankById(watertankId) ;
+			  Watertank watertank =watertankServiceStub.getWatertankById(watertankId) ;
 			  if (watertank.getCurrentCapacity() > literOfLeak) {
 				  watertank.setCurrentCapacity(watertank.getCurrentCapacity()-literOfLeak);
 			}

@@ -2,7 +2,11 @@ package com.watertank.test.entity;
 
 import java.io.Serializable;
 
-
+/**
+ * A pojo entity class for the App User
+ * @author The Hoff
+ *
+ */
 public class User implements Serializable {
 
 

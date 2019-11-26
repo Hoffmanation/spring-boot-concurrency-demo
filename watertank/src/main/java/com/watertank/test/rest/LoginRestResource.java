@@ -20,7 +20,11 @@ import com.watertank.test.app.UserValidator;
 import com.watertank.test.entity.Credentials;
 import com.watertank.test.entity.User;
 
-
+/**
+ * A Controller class for  App login-registration RestFull API calls
+ * @author The Hoff
+ *
+ */
 @RestController
 public class LoginRestResource {
 

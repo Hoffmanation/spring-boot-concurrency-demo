@@ -22,7 +22,7 @@ import com.watertank.test.rest.LoginRestResource;
 /**
  * An Http Filter class that will intercept every http client request and
  * validate if an http session already exist and if the user is trying to
- * retrieve a a secured resource from out app
+ * retrieve a a secured resource from our app
  * 
  * @author The Hoff
  *

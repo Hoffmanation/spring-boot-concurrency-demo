@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 
 /**
- * An Web Mvc Configuration class for 
+ * A Web Mvc Configuration class for 
  * A.Lookoup static content resources in our app
  * B.Configure main startup html page
  * 

@@ -2,7 +2,6 @@ package com.watertank.test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Map;
 import java.util.Random;
 
 import org.junit.jupiter.api.Test;
@@ -11,9 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.watertank.test.app.WatertankApplication;
 import com.watertank.test.daoImp.WatertankFacade;
@@ -62,6 +58,7 @@ class IntegrationWatertankTests {
 				
 				double afterAdded = watertankFacade.getQueryCurrentCapacity(watertankId,randomServerPort) ;
 				System.out.println("Current Capacity Affter Adding: "+afterAdded );
+				
 				
 				System.out.println("Finished Tested Watertank #" + watertankId +"\n");
 				assertTrue(wasAdded == beforeAdded < afterAdded);
