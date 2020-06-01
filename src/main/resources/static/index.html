@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>MyCheck App</title>
+
+<!-- Bootstrap Core CSS -->
+<script src="resources/js/angular.min.js"></script>    
+<script src="resources/js/jquery.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/ui-bootstrap-1.1.0.min.js"></script>
+
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/blog-home.css" rel="stylesheet">
+<link href="resources/css/form.css" rel="stylesheet">
+</head>
+
+<body>
+	<!--angularJS definition  -->
+	<div ng-app="loginApp" ng-controller="loginAppController"> 
+	
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<form id="logoutForm" method="POST" action="${contextPath}/secured/logout">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form>
+
+	
+			    <h2 style="margin-left: 35%">Spring boot watertank concurrency application</h2>	
+		</nav>
+
+
+		<!-- Page Content -->
+		<div class="container">
+		<br>
+			<div class="row">
+
+				<div id="getAllusers" class="col-md-8" ng-app="loginApp" ng-controller="loginAppController">
+						<h1 class="page-header">Welcome to the Water-Tank portal</h1>
+						<a class="btn btn-primary" href="#" style="margin-right: 40%;margin-left: 48px;" ng-click="getAllWatertanks() ; displayWatertankTable()">Display Watertanks<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a class="btn btn-primary" href="#" ng-click="getAllWatertanks() ; displayWatertankView()">Display Watertanks view<span class="glyphicon glyphicon-chevron-right"></span></a>
+						
+						<br>
+						<br>
+						<br>
+						
+						<table id="watertank-table">
+							<thead>
+								<tr>
+									<th >ID</th>
+									<th >Max Capacity</th>
+									<th >Current Capacity</th>
+									<th >Water Leak Rate</th>
+									<th >liter Of Leak</th>
+								</tr>
+							</thead>
+							<tbody data-ng-repeat="water in printAllWatertanks">
+								<tr>
+									<td >{{water.id}}</td>
+									<td >{{water.maxCapacity}}</td>
+									<td ><strong ng-style=" water.maxCapacity - water.currentCapacity < 3 && {'color':'red'} || {'color': 'blue'}"  >{{water.currentCapacity}}</strong></td>
+									<td >{{water.waterLeakRate}}</td>
+									<td >{{water.literOfLeak}}</td>
+								</tr>
+							</tbody>
+						</table>
+						
+					<div id="watertank-view">
+						<div class="tank" data-ng-repeat="water in printAllWatertanks">
+						<h4 style="position: absolute;margin-top: 73%;margin-left: 18%;color: black;z-index: 999">Tank # {{water.id}}</h4>
+						    <div class="water" ng-style="{'height': water.percentange }"></div>
+						</div>
+					</div>
+
+
+				</div>
+
+				<!-- Sidebar Widgets Column -->
+				<div class="col-md-4">
+					<div class="well">
+						<h4>Spring boot watertank concurrency application</h4>
+						<p>This Application demonstrate concurrency operation in java
+						   Where multiple synchronized threads simultaneously changing the watertanks entities state
+							<br>
+							<br>
+							Architectural info:
+							<br>
+							<br>
+							Java Module: Spring Boot 1.5
+							<br>
+							DataSource : In Memory
+							<br>
+							Font end: AngularJs</p>
+					</div>
+				</div>
+			</div>
+
+			<footer>
+				<div class="row">
+					<div class="col-lg-12">
+						<p>Copyright &copy; Oren Hoffman 2019</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+</body>
+</html>
