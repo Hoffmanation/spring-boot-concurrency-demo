@@ -3,12 +3,12 @@
 
 Spring boot watertank concurrency application.
 
-This Application demonstrate concurrency operation in java Where multiple synchronized threads simultaneously changing the watertanks entities state.
+This Application demonstrate concurrency operations in java Where multiple synchronized threads simultaneously changing the watertanks entities state.
 
 SPRING BOOT - CONCURRENCY DEMO APP :#Spring Boot, #In memory data, #Maven, #AngularJs, #HTML
 
-To access the application run project as a spring boot app
-and this endpoint http://localhost:8080 in the browser
+To access the application build and run project as a spring boot app
+and then hit this endpoint --> http://localhost:8080 in the browser
 
 ## Images
 ![watertank 1](watertank1.png)
